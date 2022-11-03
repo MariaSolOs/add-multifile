@@ -1,0 +1,33 @@
+{
+    "include": [
+        "src"
+    ],
+    "compilerOptions": {
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "importsNotUsedAsValues": "error",
+        "sourceMap": true,
+        "allowJs": true,
+        "checkJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "target": "ES6",
+        "incremental": true,
+        "baseUrl": "src",
+        "outDir": "out",
+        "lib": [
+            "ES2020",
+            "DOM"
+        ],
+        "module": "commonjs"
+    }
+}
