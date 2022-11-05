@@ -1,4 +1,4 @@
-import { commands, Uri, window, workspace } from 'vscode';
+import { commands, Uri, window, workspace, WorkspaceEdit } from 'vscode';
 import type { ExtensionContext, QuickPickItem as VSQuickPickItem } from 'vscode';
 
 const EXTENSION_SECTION = 'addmultifile';
@@ -27,18 +27,18 @@ const updateTemplateItems = () => {
 };
 
 const buildTemplate = async (rootUri: Uri, items: string[], args: string[]) => {
-    console.log(args);
+    const edit = new WorkspaceEdit();
 
-    for (const item of items) {
-        if (item.endsWith('/')) {
-            // We have a folder
-            const folderUri = Uri.joinPath(rootUri, item.slice(0, -1));
-            await workspace.fs.createDirectory(folderUri);
+    for (let item of items) {
+        for (const [index, arg] of args.entries()) {
+            item = item.replaceAll(`$${index}`, arg);
         }
 
         const itemUri = Uri.joinPath(rootUri, item);
-        console.log(itemUri);
+        edit.createFile(itemUri);
     }
+
+    await workspace.applyEdit(edit);
 };
 
 export const activate = (context: ExtensionContext) => {

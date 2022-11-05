@@ -4,10 +4,9 @@
             "name": "React Component",
             "description": "Item for a React component and its styles",
             "items": [
-                "MyComponent/",
-                "MyComponent/MyComponent.tsx",
-                "MyComponent/MyComponent.styled.ts",
-                "MyComponent/index"
+                "$0/$0.tsx",
+                "$0/$0.styled.ts",
+                "$0/index.ts"
             ]
         }
     ]
