@@ -20,18 +20,50 @@
         "onStartupFinished"
     ],
     "contributes": {
+        "configuration": {
+            "title": "add-multifile",
+            "properties": {
+                "addmultifile.templates": {
+                    "scope": "resource",
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "The name of the template."
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "Description of the template."
+                            },
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "description": "The file paths of the items included by the template. Additional folders are created as needed."
+                            }
+                        },
+                        "required": ["name", "items"]
+                    },
+                    "description": "File structure definition of your multi-file templates."
+                }
+            }
+        },
         "menus": {
             "explorer/context": [
                 {
                     "when": "explorerResourceIsFolder == true",
-                    "command": "multifile.add",
+                    "command": "addmultifile.new",
                     "group": "navigation@7"
                 }
             ]
         },
         "commands": [
             {
-                "command": "multifile.add",
+                "command": "addmultifile.new",
                 "title": "New Multi-File Item..."
             }
         ]

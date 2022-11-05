@@ -1,0 +1,14 @@
+{
+    "addmultifile.templates": [
+        {
+            "name": "React Component",
+            "description": "Item for a React component and its styles",
+            "items": [
+                "MyComponent/",
+                "MyComponent/MyComponent.tsx",
+                "MyComponent/MyComponent.styled.ts",
+                "MyComponent/index"
+            ]
+        }
+    ]
+}

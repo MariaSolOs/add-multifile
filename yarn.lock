@@ -232,6 +232,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"add-multifile@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "add-multifile@workspace:."
+  dependencies:
+    "@types/vscode": ^1.72.0
+    "@typescript-eslint/eslint-plugin": ^5.41.0
+    "@typescript-eslint/parser": ^5.41.0
+    eslint: ^8.26.0
+    typescript: ^4.8.4
+  languageName: unknown
+  linkType: soft
+
 "ajv@npm:^6.10.0, ajv@npm:^6.12.4":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
@@ -1172,18 +1184,6 @@ __metadata:
   checksum: 7167432de6817fe8e9e0c9684f1d2de2bb688c94388f7569f7dbdb1587c9f4ca2a77962f134ec90be0cc4d004c939ff0d05acc9f34a0db39a3c797dada262633
   languageName: node
   linkType: hard
-
-"vscode-multifile-templates@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "vscode-multifile-templates@workspace:."
-  dependencies:
-    "@types/vscode": ^1.72.0
-    "@typescript-eslint/eslint-plugin": ^5.41.0
-    "@typescript-eslint/parser": ^5.41.0
-    eslint: ^8.26.0
-    typescript: ^4.8.4
-  languageName: unknown
-  linkType: soft
 
 "which@npm:^2.0.1":
   version: 2.0.2
