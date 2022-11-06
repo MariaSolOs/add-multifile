@@ -23,16 +23,20 @@ Create custom multi-file items in VS Code, with variable name support!
 ```
 
 2. To create a new multi-file item, right click on the respective folder (just as you would for creating a new file or folder) and select "New Multi-File Item...":
-   ![Multi-file command](/images/command-menu.png)
+
+   <img src="./images/command-menu.png" alt="Multi-file command" height="270px" />
 
 3. Select the item you want to create.
-   ![Template selection](/images/select-template.png)
+
+   <img src="./images/select-template.png" alt="Template selection" />
 
 4. If applicable, input the template's arguments, separated by spaces.
-   ![Template arguments](/images/template-arguments.png)
+
+   <img src="./images/template-arguments.png" alt="Template arguments" />
 
 5. Done! Your custom multi-file item should be created :)
-   ![Created item](/images/created-items.png)
+
+   <img src="./images/created-items.png" alt="Created item" height="150px" />
 
 ## Author
 
