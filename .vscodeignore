@@ -4,5 +4,7 @@ dprint.json
 out/**
 !out/extension.js
 playground/**
+images/**
+!images/icon.png
 **/*.ts
 tsconfig.json

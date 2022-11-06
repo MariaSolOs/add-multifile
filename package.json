@@ -2,7 +2,7 @@
     "name": "add-multifile",
     "displayName": "Add Multi-File",
     "description": "Add multi-file custom templates in VS Code",
-    "icon": "icon.png",
+    "icon": "images/icon.png",
     "publisher": "mariasolos",
     "author": {
         "name": "Maria Solano",
