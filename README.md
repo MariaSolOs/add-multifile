@@ -5,8 +5,7 @@ Create custom multi-file items in VS Code, with variable name support!
 ## Configuration
 
 1. Define the templates in your [`settings.json`](https://code.visualstudio.com/docs/getstarted/settings) file. All templates need a name and their corresponding items, together with an optional description.
-
-Variables are supported using `$` followed by a number (so all occurrences of `$N` will be replaced by the `N`th argument you provide during item creation).
+   - Variables are supported using `$` followed by a number (so all occurrences of `$N` will be replaced by the `N`th argument you provide during item creation).
 
 ```json
 "addmultifile.templates": [
