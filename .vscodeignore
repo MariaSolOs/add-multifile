@@ -1,0 +1,8 @@
+.gitignore
+.vscode
+dprint.json
+out/**
+!out/extension.js
+playground/**
+**/*.ts
+tsconfig.json
