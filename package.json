@@ -10,9 +10,16 @@
     },
     "license": "MIT",
     "version": "1.0.0",
-    "categories": ["Other"],
-    "keywords": ["multifile", "add"],
-    "extensionKind": ["workspace"],
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "multifile",
+        "add"
+    ],
+    "extensionKind": [
+        "workspace"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/MariaSolOs/add-multifile.git"
@@ -25,13 +32,17 @@
     },
     "main": "./out/extension.js",
     "scripts": {
-        "watch": "tsc -b -w"
+        "watch": "tsc -b -w",
+        "clean": "rimraf out",
+        "vscode:prepublish": "npm run clean && tsc -b"
     },
     "devDependencies": {
         "@types/vscode": "^1.73.0",
         "@typescript-eslint/eslint-plugin": "^5.42.0",
         "@typescript-eslint/parser": "^5.42.0",
+        "dprint": "^0.32.2",
         "eslint": "^8.26.0",
+        "rimraf": "^3.0.2",
         "typescript": "^4.8.4"
     },
     "activationEvents": [
