@@ -1,12 +1,21 @@
 import { commands, Uri, window, workspace, WorkspaceEdit } from 'vscode';
 import type { ExtensionContext, QuickPickItem as VSQuickPickItem } from 'vscode';
 
+/**
+ * Prefix for workspace settings.
+ */
 const EXTENSION_SECTION = 'addmultifile';
 
 interface QuickPickItem extends VSQuickPickItem {
+    /**
+     * The template's name corresponding to this choice.
+     */
     name: string;
 }
 
+/**
+ * A multi-file template.
+ */
 type Template = {
     name: string;
     description?: string;
@@ -15,6 +24,9 @@ type Template = {
 
 const templateCache = new Map<string, Omit<Template, 'name'>>();
 
+/**
+ * Updates the template cache based on the workspace configuration.
+ */
 const updateTemplateItems = () => {
     templateCache.clear();
 
@@ -26,10 +38,18 @@ const updateTemplateItems = () => {
     }
 };
 
-const buildTemplate = async (rootUri: Uri, items: string[], args: string[]) => {
+/**
+ * Creates a template's items.
+ *
+ * @param rootUri - URI where the new multi-file item will be rooted at.
+ * @param items - The template items.
+ * @param args - Any extra arguments provided by the user.
+ */
+const createItems = async (rootUri: Uri, items: string[], args: string[]) => {
     const edit = new WorkspaceEdit();
 
     for (let item of items) {
+        // Replace placeholders with the provided arguments.
         for (const [index, arg] of args.entries()) {
             item = item.replaceAll(`$${index}`, arg);
         }
@@ -73,7 +93,7 @@ export const activate = (context: ExtensionContext) => {
 
             const items = templateCache.get(templatePick.name)?.items ?? [];
 
-            await buildTemplate(uri, items, args);
+            await createItems(uri, items, args);
         })
     );
 };
