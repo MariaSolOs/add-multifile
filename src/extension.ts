@@ -39,6 +39,32 @@ const updateTemplateItems = () => {
 };
 
 /**
+ * @returns The array of template items to create based on the user's choice.
+ */
+const getItems = async () => {
+    const templateEntries = Array.from(templateCache.entries());
+
+    // If there's only one template, just use that one.
+    if (templateEntries.length === 1) {
+        return templateEntries[0]?.[1].items ?? [];
+    }
+
+    const templatePicks: QuickPickItem[] = templateEntries.map(([name, template]) => ({
+        label: `$(new-folder) ${name}`,
+        description: template.description,
+        name
+    }));
+
+    const templatePick = await window.showQuickPick(templatePicks, {
+        placeHolder: 'Select your template',
+        canPickMany: false,
+        matchOnDescription: true
+    });
+
+    return templateCache.get(templatePick?.name ?? '')?.items ?? [];
+};
+
+/**
  * Creates a template's items.
  *
  * @param rootUri - URI where the new multi-file item will be rooted at.
@@ -72,27 +98,8 @@ export const activate = (context: ExtensionContext) => {
 
     context.subscriptions.push(
         commands.registerCommand('addmultifile.new', async (uri: Uri) => {
-            const templatePicks: QuickPickItem[] = Array.from(templateCache.entries()).map((
-                [name, template]
-            ) => ({
-                label: `$(new-folder) ${name}`,
-                description: template.description,
-                name
-            }));
-
-            const templatePick = await window.showQuickPick(templatePicks, {
-                placeHolder: 'Select your template',
-                canPickMany: false,
-                matchOnDescription: true
-            });
-            if (!templatePick) {
-                return;
-            }
-
+            const items = await getItems();
             const args = (await window.showInputBox({ placeHolder: 'Template arguments' }))?.split(' ') ?? [];
-
-            const items = templateCache.get(templatePick.name)?.items ?? [];
-
             await createItems(uri, items, args);
         })
     );

@@ -26,7 +26,7 @@ Create custom multi-file items in VS Code, with variable name support!
 
    <img src="./images/command-menu.png" alt="Multi-file command" height="270px" />
 
-3. Select the item you want to create.
+3. Select the item you want to create (if you only configured one template, it will be used by default).
 
    <img src="./images/select-template.png" alt="Template selection" />
 

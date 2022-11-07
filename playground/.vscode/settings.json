@@ -4,11 +4,6 @@
             "name": "React Component",
             "description": "Item for a React component and its styles",
             "items": ["$0/$0.tsx", "$0/$0.styled.ts"]
-        },
-        {
-            "name": "Test suite",
-            "description": "Item for a unit test",
-            "items": ["test-$0/$1.ts", "test-$0/$1.test.ts"]
         }
     ]
 }
